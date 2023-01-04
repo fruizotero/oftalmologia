@@ -77,6 +77,8 @@ body {
 
 .body {
     padding: 2rem 1rem;
+    /* background-image: url(../assets/img/bg.webp); */
+    /* background-size: 100% 100%; */
     /* background-color: #f5f5f5; */
 }
 
@@ -219,7 +221,7 @@ body {
 
 }
 
-.resultados{
+.resultados {
     top: 25%;
     left: 50%;
     position: fixed;
@@ -229,13 +231,13 @@ body {
     color: #ffffff;
     background-color: #00000090;
     border-radius: 1rem;
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
     visibility: hidden;
     opacity: 0;
     transition: all 1s ease-in-out;
 }
 
-.resultados__show{
+.resultados__show {
     visibility: visible;
     opacity: 1;
 
@@ -385,7 +387,7 @@ body {
     position: fixed;
 }
 
-.new__historia__text{
+.new__historia__text {
     color: #ffffff;
     text-shadow: -1px 0px 4px #c73535
 }
@@ -393,7 +395,7 @@ body {
 .pacientes {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     /* height: 60vh; */
     padding: 1rem;
     transition: all 1s ease-in-out;
@@ -613,7 +615,12 @@ body {
         width: 5rem;
     }
 
-    .new__historia--desk{
+    .resultados {
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .new__historia--desk {
         width: 60%;
         height: 80vh;
         left: 50%;
@@ -623,8 +630,64 @@ body {
         overflow-x: hidden;
     }
 
+    .info__paciente,
+    .new__paciente,
+    .new__historia {
+        z-index: 99999;
+        padding: 2rem 10%;
+    }
+
+
+
     .pacientes {
         padding: 0;
+    }
+
+    .paciente__info,
+    .paciente__historia,
+    .paciente__nueva__historia,
+    .remove
+    /* .add__paciente */
+    {
+        position: relative;
+    }
+
+    .paciente__info:hover::after,
+    .paciente__historia:hover::after,
+    .paciente__nueva__historia:hover::after,
+    .remove:hover::after
+    /* .add__paciente:hover::after */
+    {
+        content: "Datos Paciente";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        padding: 0.25rem;
+        font-size: 0.65rem;
+        text-align: center;
+        color: #ffffff;
+        background-color: #4f4988;
+        border-radius: 0.2rem;
+        transform: translate(-50%, 120%);
+        transition: transform 1s ease-in-out;
+        box-shadow: 0rem 0rem 0.2rem 0rem #c73535;
+    }
+
+    .paciente__historia:hover::after {
+        content: "Historia Médica";
+    }
+
+    .paciente__nueva__historia:hover::after {
+        content: "Nuevo Diagnóstico";
+    }
+
+    .remove:hover::after {
+        content: "Eliminar Paciente";
+    }
+
+    .add__paciente:hover::after{
+        /* content: "Nuevo Paciente";
+        transform: translate(-100%,0); */
     }
 
     .hover:hover {
