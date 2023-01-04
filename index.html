@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Home</title>
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="header__left">
+            <div class="header__text">
+                <h1 class="header__text-main">
+                    Centro Oftalmológico del Norte
+                </h1>
+                <h2 class="header__text-secondary">
+                    Carlos Labrin Palacios
+                </h2>
+            </div>
+        </div>
+        <div class="header__right">
+            <div class="logo">
+                <div class="logo__container">
+                    <img src="assets/img/logo-1.svg" alt="Logo del centro oftalmológico del Norte " class="logo__image">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="alert">
+            <div class="alert__text">
+                <p class="alert__message">¿Deseas eliminar al siguiente paciente?</p>
+                <p class="alert__nombre">Frank Ruiz Otero</p>
+            </div>
+            <div class="alert__buttons">
+                <button class="alert__true alert__button">Sí</button>
+                <button class="alert__false alert__button">No</button>
+            </div>
+        </div>
+        <div class="main__top">
+            <div class="buscador">
+                <input type="text" class="buscador__input" placeholder="Buscar paciente">
+                <div class="buscador__container hover">
+                    <img src="assets/img/lupa.svg" alt="Icono del buscador" class="buscador__image">
+                </div>
+            </div>
+            <div class="add__paciente hover">
+                <img src="assets/img/add-paciente.svg" alt="Icono añadir paciente" class="add__paciente__image">
+            </div>
+            <div class="resultados">
+                <p class="resultados__text">
+                    Se encontraron <span class="resultados__numero"></span> coincidencias
+
+                </p>
+            </div>
+        </div>
+        <div class="main__bottom">
+            <!-- Mensaje -->
+            <p class="mensaje">Mensaje</p>
+            <!-- Info i eción del paciente -->
+            <div class="info__paciente">
+                <div class="info__paciente__items">
+                    <p class="info__paciente__title-main">Datos del Paciente</p>
+                    <div class="info__paciente__container">
+                        <img src="assets/img/close.svg" alt="Icono de cerrar" class="info__paciente__image">
+                    </div>
+                </div>
+                <div class="info__paciente__datos">
+                    <input type="hidden" class="info__paciente__codigo">
+                    <label for="" class="info__paciente__title">Nombre:</label>
+                    <input type="text" class="info__paciente__nombre info__paciente__input disabled"
+                        placeholder="Nombre">
+                    <label for="" class="info__paciente__title">Dirección:</label>
+                    <input type="text" class="info__paciente__direccion info__paciente__input disabled"
+                        placeholder="Dirección">
+                    <label for="" class="info__paciente__title">Teléfono:</label>
+                    <input type="text" class="info__paciente__telefono info__paciente__input disabled"
+                        placeholder="Teléfono">
+                    <label for="" class="info__paciente__title">Telef(s):</label>
+                    <input type="text" class="info__paciente__lugar info__paciente__input disabled"
+                        placeholder="Teléfono 2">
+                    <label for="" class="info__paciente__title">RUC (Enviado por):</label>
+                    <input type="text" class="info__paciente__ruc info__paciente__input disabled" placeholder="RUC">
+                    <label for="" class="info__paciente__title">Edad:</label>
+                    <input type="text" class="info__paciente__edad info__paciente__input disabled" placeholder="Edad">
+                    <label for="" class="info__paciente__title">Otros:</label>
+                    <input type="text" class="info__paciente__otros info__paciente__input disabled" placeholder="Otros">
+                </div>
+                <div class="info__paciente__buttons">
+
+                    <div class="info__paciente__container__editar hover ">
+                        <img src="assets/img/edit-datos.svg" alt="Icono de edición de info del paciente"
+                            class="editar__image">
+                    </div>
+
+                    <button class="info__paciente__guardar disabled">Guardar</button>
+                    <!-- <h2 class="info__paciente__nota"></h2> -->
+                </div>
+            </div>
+            <!-- Nuevo paciente -->
+            <form class="new__paciente" method="post" action="#">
+                <div class="new__paciente__items">
+                    <p class="new__paciente__title-main">Añadir Paciente</p>
+                    <div class="new__paciente__container">
+                        <img src="assets/img/close.svg" alt="Icono de cerrar" class="new__paciente__image">
+                    </div>
+                </div>
+                <div class="new__paciente__datos">
+                    <label for="" class="new__paciente__title">Nombre:</label>
+                    <input type="text" class="new__paciente__nombre new__paciente__input" placeholder="Nombre"
+                        name="nombre" title="Nombre sólo acepta letras y espacios en blanco"
+                        pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+                    <label for="" class="new__paciente__title">Dirección:</label>
+                    <input type="text" class="new__paciente__direccion new__paciente__input" placeholder="Dirección"
+                        name="direccion">
+                    <label for="" class="new__paciente__title">Teléfono:</label>
+                    <input type="text" class="new__paciente__telefono new__paciente__input" placeholder="Teléfono"
+                        name="telefono" title="Teléfono sólo acepta números" pattern="^[0-9]+$">
+                    <!-- <label for="" class="new__paciente__title">Telef(s):</label>
+                    <input type="text" class="new__paciente__lugar new__paciente__input" placeholder="Teléfono 2" name="lugar"> -->
+                    <label for="" class="new__paciente__title">RUC (Enviado por):</label>
+                    <input type="text" class="new__paciente__ruc new__paciente__input" placeholder="RUC" name="ruc">
+                    <label for="" class="new__paciente__title">Edad:</label>
+                    <input type="text" class="new__paciente__edad new__paciente__input" placeholder="Edad" name="edad"
+                        title="Edad sólo acepta números" pattern="^[0-9]+$" required>
+                    <label for="" class="new__paciente__title">Otros:</label>
+                    <input type="text" class="new__paciente__otros new__paciente__input" placeholder="Otros"
+                        name="otros">
+                </div>
+                <div class="new__paciente__buttons">
+                    <input type="submit" class="new__paciente__guardar" value="Guardar">
+                </div>
+            </form>
+            <!-- Div añadir nueva historia -->
+            <form class="new__historia" method="post" action="#">
+                <div class="new__historia__items">
+                    <p class="new__historia__title-main">Registrar Diagnóstico</p>
+                   
+                    <div class="new__historia__container">
+                        <img src="assets/img/close.svg" alt="Icono de cerrar" class="new__historia__image">
+                    </div>
+                </div>
+                <p class="new__historia__text"> Para: <span class="new__historia--nombre"></span></p>
+                <div class="new__historia__datos">
+
+                    <label for="" class="new__historia__title">Enfermedad Actual:</label>
+                    <input type="text" class="new__historia__input" placeholder="Enfermedad" name="enfermedad">
+                    <label for="" class="new__historia__title">O.D.V:</label>
+                    <input type="text" class="new__historia__input" placeholder="O.D.V" name="odv">
+                    <label for="" class="new__historia__title">O.I.V:</label>
+                    <input type="text" class="new__historia__input" placeholder="O.I.V" name="oiv">
+                    <label for="" class="new__historia__title">P.O:</label>
+                    <input type="text" class="new__historia__input" placeholder="P.O" name="texto1">
+                    <label for="" class="new__historia__title">RE:</label>
+                    <input type="text" class="new__historia__input" placeholder="RE" name="texto2">
+                    <input type="text" class="new__historia__input" placeholder="RE" name="texto2b">
+                    <input type="text" class="new__historia__input" placeholder="RE" name="texto2c">
+                    <label for="" class="new__historia__title">FO:</label>
+                    <input type="text" class="new__historia__input" placeholder="FO" name="texto3">
+                    <label for="" class="new__historia__title">DX:</label>
+                    <input type="text" class="new__historia__input" placeholder="DX" name="texto4">
+                    <label for="" class="new__historia__title">RP:</label>
+                    <input type="text" class="new__historia__input" placeholder="RP" name="texto5">
+                    <label for="" class="new__historia__title">Resultados:</label>
+                    <textarea name="resul1" cols="30" rows="10" placeholder="Resultados"></textarea>
+                    <label for="" class="new__historia__title">Importe:</label>
+                    <input type="text" class="new__historia__input" placeholder="Importe" name="importe">
+
+                </div>
+                <div class="new__historia__buttons">
+                    <input type="submit" class="new__historia__guardar" value="Guardar">
+                </div>
+            </form>
+
+            <div class="pacientes">
+                <!-- Almacenar como atributos data toda la info del paciente -->
+
+            </div>
+            <div class="paginacion">
+                <div class="paginacion__buttons">
+                    <button class="button__left paginacion__button hover">&#60;&#60;</button>
+                    <button class="button__right paginacion__button hover">&#62;&#62;</button>
+                </div>
+
+                <p class="paginacion__text">Página 1 de 20</p>
+            </div>
+        </div>
+        <template class="template-paciente">
+            <article class="paciente">
+                <div class="class__all__info" style="display: none;"></div>
+                <div class="paciente__main">
+                    <div class="paciente__left">
+                        <div class="paciente__img">
+                            <div class="paciente__img__container">
+                                <img src="assets/img/person.svg" alt="Imagen del paciente" class="paciente__img__image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paciente__right">
+                        <div class="paciente__right__data">
+                            <div class="paciente__data__nombre paciente__data">
+                                <p class="paciente__title">Nombre:</p>
+                                <p class="paciente__nombre">HERNANDEZ MORALES JOLVER </p>
+                            </div>
+                            <div class="paciente__data__direccion paciente__data">
+                                <p class="paciente__title">
+                                    Dirección:
+                                </p>
+                                <p class="paciente__direccion">Espinal Oyotun La Florida</p>
+                            </div>
+                            <div class="paciente__data__edad paciente__data">
+                                <p class="paciente__title">
+                                    Edad:
+                                </p>
+                                <p class="paciente__edad">19</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="paciente__secondary">
+                    <div class="paciente__options">
+                        <div class="paciente__info option">
+                            <div class="paciente__info__container hover">
+                                <img src="assets/img/personal-info.svg" alt="Icono de la información del paciente"
+                                    class="paciente__info__image">
+                            </div>
+                        </div>
+                        <div class="paciente__historia option">
+                            <a href="pages/historia.html" class="paciente__historia__link hover" target="_blank">
+                                <div class="paciente__historia__container">
+                                    <img src="assets/img/historia.svg" alt="Imagel del icono de historia"
+                                        class="paciente__historia__imagen">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="paciente__nueva__historia option">
+                            <div class="paciente__nueva__historia__container hover">
+                                <img src="assets/img/add-historia.svg" alt="Icono añadir nueva historia"
+                                    class="paciente__nueva__historia__image">
+                            </div>
+                        </div>
+
+                        <div class="remove option">
+                            <div class="remove__container hover">
+                                <img src="assets/img/remove-paciente.svg" alt="Icono eliminar paciente"
+                                    class="remove__image">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- </div> -->
+
+            </article>
+        </template>
+
+    </main>
+    <footer class="footer">
+        <div class="footer__contact">
+            <div class="phone">
+                <div class="phone__container footer__container">
+                    <a href="tel:+18005552368" class="phone__nimber">
+                        <img src="assets/img/phone.svg" alt="Icono del teléfono" class="phone__image">
+                    </a>
+                </div>
+
+            </div>
+            <div class="email">
+                <div class="email__container footer__container">
+
+                    <a href="mailto:hey@thomasjbradley.ca">
+                        <img src="assets/img/email-icon.svg" alt="Icono del email" class="email__image">
+
+                    </a>
+                </div>
+
+            </div>
+            <div class="face">
+                <div class="face__container footer__container">
+                    <a href="#">
+                        <img src="assets/img/face-icon.svg" alt="Icono de facebook" class="face__image">
+                    </a>
+                </div>
+            </div>
+
+            <div class="whatsapp">
+                <div class="whatsapp__container footer__container">
+
+                    <a href="tel:+18005552368" class="phone__nimber">
+                        <img src="assets/img/whatsapp.svg" alt="Icono de whatsapp" class="whatsapp__image">
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+    <script src="js/index.js" type="module"></script>
+</body>
+
+</html>

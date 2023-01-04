@@ -1,0 +1,635 @@
+/* **********     Reset CSS     ********** */
+
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    --bg-color: #ffffff;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button {
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    appearance: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    margin-block: 0;
+    font-weight: 400;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+@keyframes myAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-1rem);
+        /* transform: translateY(-100%); */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+        /* transform: translateY(0%); */
+    }
+}
+
+.body {
+    padding: 2rem 1rem;
+    /* background-color: #f5f5f5; */
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.header__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.header__text-main {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.header__text-secondary {
+    width: max-content;
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 1px solid #000;
+}
+
+.header__right {
+    width: 3.5rem;
+}
+
+.alert {
+    z-index: 999;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: max-content;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0rem 0.1rem 0.5rem 0.1rem #c7353590;
+    background-color: #ffffff;
+    transform: translate(-50%, 0);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.alert__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert__message {
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert__nombre {
+    font-style: italic;
+}
+
+.alert__buttons {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+}
+
+.alert__button {
+    width: 4rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    box-shadow: 0rem 0.05rem 0.25rem 0.05rem #00000090;
+}
+
+.alert__show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.buscador {
+    /* order: 1; */
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    display: flex;
+    padding: 1rem;
+    box-shadow: 0rem 0.2rem 0.75rem 0.2rem #00000020;
+    border-radius: 0.5rem;
+}
+
+.buscador__input {
+    width: 90%;
+}
+
+.buscador__container {
+    position: absolute;
+    width: 1.5rem;
+    right: 1rem;
+    /* width: 4rem; */
+}
+
+.add__paciente {
+    align-self: flex-start;
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+}
+
+.add__paciente__image {
+    object-fit: cover;
+
+}
+
+.resultados{
+    top: 25%;
+    left: 50%;
+    position: fixed;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #00000090;
+    border-radius: 1rem;
+    transform: translate(-50%,0);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.resultados__show{
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.info__paciente,
+.new__paciente,
+.new__historia {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: #00000099;
+    transform: translate(100%, 0);
+    overflow: scroll;
+    transition: transform 1s ease-in-out;
+}
+
+
+.new__paciente {
+    gap: 2rem;
+    transform: translate(0, -120%);
+}
+
+.new__historia {
+    transform: translate(0, 0);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.new__historia__show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.new__paciente__show {
+    transform: translate(0, 0);
+}
+
+.info__paciente__show {
+    transform: translate(0%, 0);
+}
+
+.info__paciente__items,
+.new__paciente__items,
+.new__historia__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info__paciente__container,
+.new__paciente__container,
+.new__historia__container {
+    width: 2rem;
+    background-color: #c73535;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+}
+
+.info__paciente__title,
+.info__paciente__title-main,
+.new__paciente__title,
+.new__paciente__title-main,
+.new__historia__title,
+.new__historia__title-main {
+    width: max-content;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: -1px 0px 4px #c73535
+}
+
+.info__paciente__title-main,
+.new__paciente__title-main,
+.new__historia__title-main {
+    position: relative;
+    width: max-content;
+    font-size: 1rem;
+    overflow: hidden;
+    border-bottom: 0.2rem solid #ffffff;
+}
+
+
+.info__paciente__datos,
+.new__paciente__datos,
+.new__historia__datos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info__paciente__input,
+.new__paciente__input,
+.new__historia__input {
+    padding: 0.75rem;
+    border-radius: 0.2rem;
+    background-color: #ffffff;
+}
+
+.info__paciente__buttons,
+.new__paciente__buttons,
+.new__historia__buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new__paciente__buttons,
+.new__historia__buttons {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.info__paciente__container__editar {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+    background-color: #ffffff;
+    border-radius: 0.2rem;
+}
+
+.info__paciente__guardar,
+.new__paciente__guardar,
+.new__historia__guardar {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    border-radius: 0.2rem;
+}
+
+.new__paciente__guardar,
+.new__historia__guardar {
+    right: 0;
+}
+
+.add__historia {
+    position: fixed;
+}
+
+.new__historia__text{
+    color: #ffffff;
+    text-shadow: -1px 0px 4px #c73535
+}
+
+.pacientes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* height: 60vh; */
+    padding: 1rem;
+    transition: all 1s ease-in-out;
+    /* border: medium solid #38425e; */
+    /* overflow: scroll; */
+    /* background-color: #b0b5c420; */
+    /* border-radius: 1rem;
+    box-shadow: 0rem 0.2rem 0.75rem 0.2rem #00000020; */
+}
+
+.paciente {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0rem 0.1rem 0.75rem 0.1rem #00000050;
+    animation: myAnimation 1s;
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+
+.paciente--hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.paciente__main {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.paciente__left {
+    display: none;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+
+}
+
+.paciente__img {
+    /* display: none; */
+}
+
+.paciente__img__image {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.paciente__right {
+    flex-grow: 1;
+    display: flex;
+
+    width: 100%;
+}
+
+.paciente__right__data {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    /* flex-direction: column; */
+    /* gap: 0.5rem; */
+}
+
+.paciente__data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.paciente__title {
+    width: max-content;
+    font-weight: bold;
+    border-bottom: thin solid #000;
+}
+
+.paciente__data__nombre {
+    width: 60%;
+}
+
+.paciente__nombre {
+    text-transform: lowercase;
+}
+
+.paciente__data__edad {
+    /* display: none; */
+}
+
+.paciente__data__direccion {
+    display: none;
+}
+
+.paciente__options {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.option {
+    width: 2rem;
+    height: 2rem;
+}
+
+.main__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.paginacion {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+
+}
+
+.paginacion__buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.paginacion__button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 0.5rem;
+}
+
+.footer {
+    margin-top: 2rem;
+}
+
+.footer__contact {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 1rem;
+}
+
+.footer__container {
+    width: 2rem;
+    height: 2rem;
+}
+
+.mensaje {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    /* height: 2rem; */
+    color: #ffffff;
+    text-align: center;
+    background-color: #38425e90;
+    transform: translate(0, -100%);
+    transition: transform 1s ease-in-out;
+}
+
+.show-mensaje {
+    transform: translate(0, 0%);
+
+}
+
+@media screen and (min-width:48em) {
+
+    .main__top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .buscador {
+        flex-grow: 0;
+        width: 80%;
+    }
+
+    .add__paciente {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+
+    .paciente__data__nombre {
+        width: 33%;
+    }
+
+    .paciente__data__direccion {
+        width: 33%;
+        display: flex;
+    }
+
+}
+
+@media screen and (min-width:64em) {
+
+    .body {
+        padding: 2rem 10%;
+    }
+
+    .header__text-main {
+        font-size: 2rem;
+    }
+
+    .header__text-secondary {
+        font-size: 1.25rem;
+    }
+
+    .header__right {
+        width: 5rem;
+    }
+
+    .new__historia--desk{
+        width: 60%;
+        height: 80vh;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .pacientes {
+        padding: 0;
+    }
+
+    .hover:hover {
+        cursor: pointer;
+        opacity: .8;
+    }
+
+}

@@ -1,0 +1,157 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    --bg-color: #ffffff;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button {
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    appearance: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    margin-block: 0;
+    font-weight: 400;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+@keyframes myAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-1rem);
+        /* transform: translateY(-100%); */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+        /* transform: translateY(0%); */
+    }
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 5%;
+}
+
+.historias {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+table {
+    width: 100%;
+    border: 1px solid rgb(190, 190, 190);
+}
+
+th {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.75em;
+    color: #ffffff;
+    background-color: #768083;
+    border: 1px solid rgb(190, 190, 190);
+}
+
+td {
+    padding: 0.5rem;
+    font-size: 0.75em;
+    vertical-align: top;
+    border: 1px solid rgb(190, 190, 190);
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.header__top{
+    /* align-self: flex-end; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-style: italic;
+}
+
+.header__text{
+    width: max-content;
+    font-weight: bold;
+    border-bottom: 1px solid #000000;
+}
+
+.header__bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header__left{
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    row-gap: 0.5rem;
+}
+
+.header__item{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.header__title{
+    font-weight: bold;
+}
+
+.td_fecha {
+    width: 6rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    background-color: #b34131;
+}
